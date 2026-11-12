@@ -2,197 +2,197 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#090909">
-<title>ZEU CASINO — Intră în lumea zeilor</title>
+<title>ZEU CASINO</title>
 <style>
-:root{--gold:#e8bd55;--light:#fff0b0;--bg:#090909}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:white;font-family:Arial,sans-serif}
-header{padding:20px;text-align:center;border-bottom:1px solid #57421b}
-.logo{font-size:27px;font-weight:900;letter-spacing:3px;color:var(--gold)}
-nav{margin-top:15px}
-nav a{color:#ddd;text-decoration:none;margin:0 10px;font-size:14px}
-.hero{text-align:center;padding:55px 15px;background:radial-gradient(ellipse,#493512,#090909 70%)}
-.hero .crown{font-size:65px;color:var(--gold)}
-h1{font-size:clamp(38px,8vw,65px);color:var(--light);margin:10px}
-h2{color:var(--gold)}
-.hero p{color:#ccc}
-.balance{display:inline-block;margin-top:15px;padding:13px 22px;border:1px solid var(--gold);border-radius:8px;color:var(--light);font-weight:bold}
-.games{max-width:1000px;margin:auto;padding:25px 15px}
-.game{background:linear-gradient(145deg,#211a0d,#111);border:1px solid #57421b;border-radius:15px;padding:25px;margin:25px 0;text-align:center}
-.game h2{margin-top:0}
-.machine{font-size:55px;letter-spacing:8px;padding:22px;background:#080808;border:1px solid #70551e;border-radius:10px;margin:20px auto;max-width:400px}
-button{background:linear-gradient(135deg,#fff0b0,#c18a24);color:#171006;border:0;border-radius:7px;padding:13px 23px;font-weight:bold;font-size:15px;cursor:pointer;margin:7px}
-button:disabled{opacity:.5;cursor:not-allowed}
-button:hover{filter:brightness(1.12)}
-input{width:90px;padding:11px;border-radius:6px;border:1px solid var(--gold);background:#080808;color:white;text-align:center;font-size:16px}
-.result{min-height:28px;color:var(--light);font-weight:bold;margin:15px 0}
-.wheel{font-size:85px;margin:20px;display:inline-block;transition:transform 3s cubic-bezier(.15,.7,.1,1)}
-.dice{font-size:65px;margin:15px}
-.note{text-align:center;color:#888;font-size:12px;padding:25px;line-height:1.6}
-@media(max-width:500px){nav a{margin:0 5px;font-size:12px}.game{padding:18px 10px}}
+body{margin:0;background:#090909;color:#fff;font-family:Arial,sans-serif}
+header{background:#111;border-bottom:1px solid #76551d;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:25px;font-weight:900;color:#f1c75b;letter-spacing:2px}
+.balance{color:#f5d77d;border:1px solid #8c6a29;padding:10px 15px;border-radius:9px}
+nav{display:flex;gap:8px;overflow:auto;padding:12px;background:#111}
+nav button{white-space:nowrap}
+button{cursor:pointer;border:1px solid #9b762e;border-radius:7px;background:linear-gradient(135deg,#ffe9a0,#bc872b);color:#160f03;font-weight:bold;padding:11px 16px}
+button:hover{filter:brightness(1.15)}
+button.secondary{background:#211a0e;color:#f4d47c}
+.hero{text-align:center;padding:35px 15px;background:radial-gradient(ellipse,#4b3510,#090909 70%)}
+.hero h1{font-size:clamp(35px,8vw,65px);color:#f5d77d;margin:8px}
+.hero p{color:#c9c2b1}
+.wrap{max-width:1150px;margin:auto;padding:18px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+input{background:#171717;color:white;border:1px solid #806126;border-radius:7px;padding:12px;flex:1;min-width:180px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:13px}
+.tile{background:linear-gradient(145deg,#211a0d,#101010);border:1px solid #58421b;border-radius:12px;padding:18px 10px;text-align:center;cursor:pointer;min-height:150px}
+.tile:hover{border-color:#f2cf70;transform:translateY(-2px)}
+.tile .emoji{font-size:40px}
+.tile h3{font-size:15px;color:#f3d37b;margin:9px 0}
+.tile small{color:#aaa}
+h2{color:#f1ce70}
+#gamePanel{display:none;background:#17130b;border:1px solid #94702b;border-radius:14px;padding:22px;text-align:center;margin:20px 0}
+#gamePanel .big{font-size:60px;margin:15px}
+#result{min-height:30px;color:#f4d47c;margin:16px}
+#gameControls{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+footer{text-align:center;padding:30px;color:#888;font-size:12px;line-height:1.7}
 </style>
 </head>
 <body>
-
 <header>
 <div class="logo">⚡ ZEU CASINO</div>
-<nav>
-<a href="#acasa">Acasă</a>
-<a href="#slot">Slot</a>
-<a href="#roata">Roata</a>
-<a href="#zaruri">Zaruri</a>
-</nav>
+<div class="balance">💰 <span id="credits">1000</span> credite demo</div>
 </header>
 
-<section class="hero" id="acasa">
-<div class="crown">♛</div>
+<nav>
+<button class="secondary" onclick="filter('Toate')">Toate jocurile</button>
+<button class="secondary" onclick="filter('Sloturi')">Sloturi</button>
+<button class="secondary" onclick="filter('Masă')">Jocuri de masă</button>
+<button class="secondary" onclick="filter('Rapide')">Jocuri rapide</button>
+<button class="secondary" onclick="filter('Live')">Live demo</button>
+</nav>
+
+<section class="hero">
+<div style="font-size:50px">♛</div>
 <h1>ZEU CASINO</h1>
 <p>Intră în lumea zeilor.</p>
-<p>Joacă gratuit și distrează-te în universul nostru demo.</p>
-<div class="balance">💰 Credite virtuale: <span id="balance">1000</span></div>
+<p>Descoperă jocurile și distrează-te gratuit.</p>
 </section>
 
-<main class="games">
+<main class="wrap">
+<div class="tools">
+<input id="search" placeholder="🔎 Caută un joc..." oninput="render()">
+<button onclick="daily()">🎁 Bonus demo</button>
+</div>
 
-<section class="game" id="slot">
-<h2>🎰 SLOTUL ZEILOR</h2>
-<p>Cost: 20 credite virtuale / rotire</p>
-<div class="machine" id="slots">⚡ 👑 ⚡</div>
-<button onclick="spinSlot()">ÎNVÂRTE SLOTUL</button>
-<div class="result" id="slotResult">Mult noroc!</div>
-</section>
+<div id="gamePanel">
+<h2 id="gameTitle">Joc</h2>
+<div class="big" id="gameEmoji">🎰</div>
+<p id="gameInfo">Cost: 10 credite virtuale</p>
+<div id="gameControls"></div>
+<div id="result">Alege o acțiune pentru a începe.</div>
+<button class="secondary" onclick="closeGame()">Înapoi la jocuri</button>
+</div>
 
-<section class="game" id="roata">
-<h2>🎡 ROATA NOROCULUI</h2>
-<p>Cost: 10 credite virtuale / rotire</p>
-<div class="wheel" id="wheel">🎡</div>
-<br>
-<button id="wheelButton" onclick="spinWheel()">ÎNVÂRTE ROATA</button>
-<div class="result" id="wheelResult">Încearcă-ți norocul!</div>
-</section>
-
-<section class="game" id="zaruri">
-<h2>🎲 ZARURILE LUI ZEUS</h2>
-<p>Cost: 10 credite virtuale / aruncare</p>
-<div class="dice" id="dice">🎲 🎲</div>
-<button onclick="rollDice()">ARUNCĂ ZARURILE</button>
-<div class="result" id="diceResult">Poți obține între 2 și 12!</div>
-</section>
-
+<h2 id="sectionTitle">Toate jocurile</h2>
+<div class="grid" id="catalog"></div>
 </main>
 
-<footer class="note">
+<footer>
 © 2026 ZEU CASINO — Proiect demonstrativ.<br>
-Creditele sunt virtuale și nu au valoare în bani reali.
-Nu se acceptă depuneri și nu se pot face retrageri.
+Toate creditele sunt virtuale și nu au valoare în bani reali.
+Nu există depuneri, retrageri sau pariuri reale. Jocurile LIVE sunt simulări.
 </footer>
 
 <script>
-let credits = 1000;
-let busy = false;
+let credits=1000,selected=null,category='Toate',playedBonus=false;
+const games=[
+["Zeus Slots","🎰","Sloturi","slot"],
+["Golden Pharaoh","🏺","Sloturi","slot"],
+["Olympus Gems","💎","Sloturi","slot"],
+["Fortune Crown","👑","Sloturi","slot"],
+["Lightning Reels","⚡","Sloturi","slot"],
+["Mystic Stars","🌟","Sloturi","slot"],
+["Dragon Treasure","🐉","Sloturi","slot"],
+["Temple Gold","🏛️","Sloturi","slot"],
+["Blackjack","🃏","Masă","blackjack"],
+["Ruletă","🎡","Masă","roulette"],
+["Poker","♠️","Masă","cards"],
+["Baccarat","♦️","Masă","cards"],
+["Zaruri","🎲","Masă","dice"],
+["Roata norocului","🎡","Rapide","wheel"],
+["Mines","💣","Rapide","mines"],
+["Plinko","🔴","Rapide","plinko"],
+["Crash","🚀","Rapide","crash"],
+["Keno","🔢","Rapide","keno"],
+["Bingo","🎱","Rapide","keno"],
+["Coin Flip","🪙","Rapide","coin"],
+["Hi-Lo","📈","Rapide","hilo"],
+["Lucky 7","🍀","Rapide","dice"],
+["Andar Bahar","🂡","Masă","cards"],
+["Sic Bo","🎲","Masă","dice"],
+["Video Poker","🃏","Masă","cards"],
+["Dealeri Zeus","🎩","Live","live"],
+["Ruletă Live Demo","🎡","Live","live"],
+["Blackjack Live Demo","♣️","Live","live"],
+["Baccarat Live Demo","♦️","Live","live"],
+["Show Zeus","👑","Live","live"]
+];
 
-function updateBalance(){
- document.getElementById("balance").textContent=credits;
+function update(){document.getElementById('credits').textContent=credits}
+function render(){
+ const q=document.getElementById('search').value.toLowerCase();
+ const list=games.filter(g=>(category==='Toate'||g[2]===category)&&g[0].toLowerCase().includes(q));
+ document.getElementById('catalog').innerHTML=list.map(g=>
+ `<div class="tile" onclick="openGame('${g[0]}')"><div class="emoji">${g[1]}</div><h3>${g[0]}</h3><small>${g[2]} · DEMO</small></div>`).join('');
+ document.getElementById('sectionTitle').textContent=category==='Toate'?'Toate jocurile':category;
 }
-
-function spend(amount){
- if(credits<amount){
-  alert("Nu ai suficiente credite virtuale!");
-  return false;
+function filter(c){category=c;render()}
+function openGame(name){
+ selected=games.find(g=>g[0]===name);
+ document.getElementById('gamePanel').style.display='block';
+ document.getElementById('gameTitle').textContent=name;
+ document.getElementById('gameEmoji').textContent=selected[1];
+ document.getElementById('gameInfo').textContent=selected[2]==='Live'?'Simulare demonstrativă cu dealer virtual.':'Cost: 10 credite virtuale pe rundă.';
+ document.getElementById('result').textContent='Bun venit! Apasă JOACĂ pentru a începe.';
+ document.getElementById('gameControls').innerHTML='<button onclick="play()">JOACĂ</button>';
+ document.getElementById('gamePanel').scrollIntoView({behavior:'smooth'});
+}
+function closeGame(){document.getElementById('gamePanel').style.display='none'}
+function play(){
+ if(!selected)return;
+ if(selected[3]==='blackjack'){blackjack();return}
+ if(credits<10){document.getElementById('result').textContent='Nu mai ai credite demo. Revino mâine pentru bonus!';return}
+ credits-=10;
+ let type=selected[3],msg='',emoji=selected[1],prize=0;
+ const r=n=>Math.floor(Math.random()*n);
+ if(type==='slot'){
+  let a=['⚡','👑','💎','🍀','⭐','🔱'],x=[a[r(6)],a[r(6)],a[r(6)]];
+  document.getElementById('gameEmoji').textContent=x.join(' ');
+  if(x[0]===x[1]&&x[1]===x[2]){prize=100;msg='JACKPOT! Trei simboluri identice!'}
+  else if(x[0]===x[1]||x[1]===x[2]||x[0]===x[2]){prize=25;msg='Ai o pereche!'}
+  else msg='Nu ai câștigat de data aceasta.';
+ }else if(type==='roulette'){
+  let n=r(37);document.getElementById('gameEmoji').textContent='🎡 '+n;
+  prize=n===0?100:n%2===0?20:0;msg='Numărul extras: '+n;
+ }else if(type==='dice'){
+  let a=r(6)+1,b=r(6)+1;document.getElementById('gameEmoji').textContent='🎲 '+a+' + '+b;
+  prize=a+b>=9?30:0;msg='Total: '+(a+b);
+ }else if(type==='wheel'){
+  prize=[0,10,20,30,50,100][r(6)];msg='Roata s-a oprit! Premiu: '+prize;
+ }else if(type==='coin'){
+  let a=r(2);document.getElementById('gameEmoji').textContent=a?'👑':'🪙';prize=a?20:0;msg=a?'Ai câștigat!':'Nu ai câștigat.';
+ }else if(type==='mines'){
+  let a=r(5);document.getElementById('gameEmoji').textContent=a?'💎':'💣';prize=a?25:0;msg=a?'Ai găsit o comoară!':'Ai găsit o mină!';
+ }else if(type==='plinko'){
+  prize=[0,0,10,20,30,50,100][r(7)];msg='Bila a aterizat! Premiu: '+prize;
+ }else if(type==='crash'){
+  let x=(1+r(50)/10).toFixed(1);document.getElementById('gameEmoji').textContent='🚀 '+x+'x';prize=x>=3?30:0;msg='Multiplicator demo: '+x+'x';
+ }else if(type==='keno'){
+  prize=r(5)===0?60:0;msg=prize?'Ai ghicit numerele!':'Nu ai ghicit de data aceasta.';
+ }else if(type==='hilo'){
+  prize=r(2)?20:0;msg=prize?'Ai ghicit!':'Ai ratat!';
+ }else if(type==='cards'){
+  let a=r(13)+1,b=r(13)+1;document.getElementById('gameEmoji').textContent=a+' 🂠 '+b;
+  prize=a>b?20:a===b?10:0;msg='Cărțile au fost împărțite.';
+ }else if(type==='live'){
+  prize=r(3)===0?20:0;msg='Dealerul virtual a încheiat runda. Aceasta este o simulare.';
  }
- credits-=amount;
- updateBalance();
- return true;
+ credits+=prize;update();
+ document.getElementById('result').textContent=msg+(prize?' Ai primit '+prize+' credite demo.':'');
 }
-
-function reward(amount){
- credits+=amount;
- updateBalance();
+function blackjack(){
+ if(credits<10){document.getElementById('result').textContent='Nu ai suficiente credite demo.';return}
+ credits-=10;
+ let p= Math.floor(Math.random()*10)+12,d=Math.floor(Math.random()*10)+12;
+ let win=p>d;let prize=win?25:p===d?10:0;
+ credits+=prize;update();
+ document.getElementById('gameEmoji').textContent='🃏 '+p+' : '+d;
+ document.getElementById('result').textContent='Tu: '+p+' | Dealer virtual: '+d+'. '+(win?'Ai câștigat!':p===d?'Egalitate!':'Dealerul a câștigat.');
 }
-
-function spinSlot(){
- if(busy || !spend(20))return;
- busy=true;
- const symbols=["⚡","👑","💎","🔱","🍀","⭐"];
- const result=document.getElementById("slots");
- const output=document.getElementById("slotResult");
- output.textContent="Se învârt rolele...";
- let count=0;
- const timer=setInterval(()=>{
-  result.textContent=Array.from({length:3},()=>symbols[Math.floor(Math.random()*symbols.length)]).join(" ");
-  count++;
-  if(count>=12){
-   clearInterval(timer);
-   const a=symbols[Math.floor(Math.random()*symbols.length)];
-   const b=symbols[Math.floor(Math.random()*symbols.length)];
-   const c=symbols[Math.floor(Math.random()*symbols.length)];
-   result.textContent=a+" "+b+" "+c;
-   if(a===b && b===c){
-    reward(200);
-    output.textContent="JACKPOT! Ai primit 200 de credite virtuale!";
-   }else if(a===b || b===c || a===c){
-    reward(40);
-    output.textContent="Bravo! Ai primit 40 de credite virtuale!";
-   }else{
-    output.textContent="Nu ai câștigat de data aceasta. Mai încearcă!";
-   }
-   busy=false;
-  }
- },120);
+function daily(){
+ if(playedBonus){alert('Bonusul demo a fost deja folosit în această sesiune.');return}
+ credits+=250;playedBonus=true;update();alert('Ai primit 250 de credite virtuale!');
 }
-
-function spinWheel(){
- if(busy || !spend(10))return;
- busy=true;
- const wheel=document.getElementById("wheel");
- const button=document.getElementById("wheelButton");
- const output=document.getElementById("wheelResult");
- button.disabled=true;
- output.textContent="Roata se învârte...";
- wheel.style.transform="rotate("+(1440+Math.floor(Math.random()*720))+"deg)";
- setTimeout(()=>{
-  const prizes=[0,10,20,30,50,100];
-  const prize=prizes[Math.floor(Math.random()*prizes.length)];
-  reward(prize);
-  output.textContent=prize===0?"De data aceasta nu ai primit credite.":"Ai primit "+prize+" credite virtuale!";
-  wheel.style.transform="rotate(0deg)";
-  button.disabled=false;
-  busy=false;
- },3200);
-}
-
-function rollDice(){
- if(busy || !spend(10))return;
- busy=true;
- const dice=document.getElementById("dice");
- const output=document.getElementById("diceResult");
- const faces=["⚀","⚁","⚂","⚃","⚄","⚅"];
- output.textContent="Zarurile se rostogolesc...";
- let count=0;
- const timer=setInterval(()=>{
-  dice.textContent=faces[Math.floor(Math.random()*6)]+" "+faces[Math.floor(Math.random()*6)];
-  count++;
-  if(count>=10){
-   clearInterval(timer);
-   const a=Math.floor(Math.random()*6)+1;
-   const b=Math.floor(Math.random()*6)+1;
-   dice.textContent=faces[a-1]+" "+faces[b-1];
-   const total=a+b;
-   if(total===12){
-    reward(100);
-    output.textContent="DOUĂ ZARURI DE ȘASE! Ai primit 100 de credite!";
-   }else if(total>=8){
-    reward(30);
-    output.textContent="Ai obținut "+total+"! Ai primit 30 de credite!";
-   }else{
-    output.textContent="Ai obținut "+total+". Mai încearcă!";
-   }
-   busy=false;
-  }
- },100);
-}
+render();update();
 </script>
 </body>
 </html>
