@@ -6,69 +6,193 @@
 <meta name="theme-color" content="#090909">
 <title>ZEU CASINO — Intră în lumea zeilor</title>
 <style>
-:root{--gold:#e8bd55;--gold2:#fff0b0;--ink:#090909}
+:root{--gold:#e8bd55;--light:#fff0b0;--bg:#090909}
 *{box-sizing:border-box}
-body{margin:0;background:var(--ink);color:#fff;font-family:Arial,sans-serif}
-header{display:flex;justify-content:space-between;align-items:center;padding:22px 7%;border-bottom:1px solid #3a2b0e}
-.logo{font-size:25px;font-weight:900;color:var(--gold);letter-spacing:3px}
-nav a{color:#ddd;text-decoration:none;margin-left:20px;font-size:14px}
-.hero{min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;background:radial-gradient(ellipse at center,#493512 0%,#171108 35%,#090909 72%)}
-.content{max-width:850px}
-.symbol{font-size:70px;color:var(--gold);text-shadow:0 0 35px #e8bd55}
-h1{font-size:clamp(42px,9vw,88px);margin:15px 0;color:var(--gold2);letter-spacing:4px;text-shadow:0 0 25px #a87924}
-.subtitle{font-size:clamp(18px,3vw,25px);color:#eee}
-.description{max-width:600px;margin:22px auto;color:#c7c0b0;line-height:1.7}
-.button{display:inline-block;margin-top:20px;padding:16px 35px;border:1px solid var(--gold);border-radius:5px;background:linear-gradient(135deg,#fff0b0,#c18a24);color:#171006;font-weight:bold;text-decoration:none;letter-spacing:1px}
-section{padding:65px 7%;text-align:center}
-h2{color:var(--gold);font-size:30px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;margin-top:30px}
-.card{padding:30px 20px;background:linear-gradient(145deg,#20190d,#0e0d0a);border:1px solid #57421b;border-radius:12px}
-.card .symbol{font-size:40px}
-.card h3{color:var(--gold2)}
-.card p{color:#bbb;line-height:1.5}
-footer{padding:30px 15px;text-align:center;border-top:1px solid #3a2b0e;color:#888;font-size:13px;line-height:1.7}
-@media(max-width:600px){header{padding:18px;flex-direction:column;gap:15px}nav a{margin:0 8px}.hero{min-height:70vh}}
+body{margin:0;background:var(--bg);color:white;font-family:Arial,sans-serif}
+header{padding:20px;text-align:center;border-bottom:1px solid #57421b}
+.logo{font-size:27px;font-weight:900;letter-spacing:3px;color:var(--gold)}
+nav{margin-top:15px}
+nav a{color:#ddd;text-decoration:none;margin:0 10px;font-size:14px}
+.hero{text-align:center;padding:55px 15px;background:radial-gradient(ellipse,#493512,#090909 70%)}
+.hero .crown{font-size:65px;color:var(--gold)}
+h1{font-size:clamp(38px,8vw,65px);color:var(--light);margin:10px}
+h2{color:var(--gold)}
+.hero p{color:#ccc}
+.balance{display:inline-block;margin-top:15px;padding:13px 22px;border:1px solid var(--gold);border-radius:8px;color:var(--light);font-weight:bold}
+.games{max-width:1000px;margin:auto;padding:25px 15px}
+.game{background:linear-gradient(145deg,#211a0d,#111);border:1px solid #57421b;border-radius:15px;padding:25px;margin:25px 0;text-align:center}
+.game h2{margin-top:0}
+.machine{font-size:55px;letter-spacing:8px;padding:22px;background:#080808;border:1px solid #70551e;border-radius:10px;margin:20px auto;max-width:400px}
+button{background:linear-gradient(135deg,#fff0b0,#c18a24);color:#171006;border:0;border-radius:7px;padding:13px 23px;font-weight:bold;font-size:15px;cursor:pointer;margin:7px}
+button:disabled{opacity:.5;cursor:not-allowed}
+button:hover{filter:brightness(1.12)}
+input{width:90px;padding:11px;border-radius:6px;border:1px solid var(--gold);background:#080808;color:white;text-align:center;font-size:16px}
+.result{min-height:28px;color:var(--light);font-weight:bold;margin:15px 0}
+.wheel{font-size:85px;margin:20px;display:inline-block;transition:transform 3s cubic-bezier(.15,.7,.1,1)}
+.dice{font-size:65px;margin:15px}
+.note{text-align:center;color:#888;font-size:12px;padding:25px;line-height:1.6}
+@media(max-width:500px){nav a{margin:0 5px;font-size:12px}.game{padding:18px 10px}}
 </style>
 </head>
 <body>
+
 <header>
 <div class="logo">⚡ ZEU CASINO</div>
 <nav>
 <a href="#acasa">Acasă</a>
-<a href="#univers">Univers</a>
-<a href="#despre">Despre</a>
+<a href="#slot">Slot</a>
+<a href="#roata">Roata</a>
+<a href="#zaruri">Zaruri</a>
 </nav>
 </header>
 
-<main>
-<div class="hero" id="acasa">
-<div class="content">
-<div class="symbol">♛</div>
+<section class="hero" id="acasa">
+<div class="crown">♛</div>
 <h1>ZEU CASINO</h1>
-<p class="subtitle">Intră în lumea zeilor.</p>
-<p class="description">Un univers digital inspirat de puterea zeilor, eleganță și mister. Descoperă conceptul ZEU CASINO.</p>
-<a class="button" href="#univers">DESCOPERĂ UNIVERSUL</a>
-</div>
-</div>
-
-<section id="univers">
-<h2>UNIVERSUL ZEU</h2>
-<div class="cards">
-<div class="card"><div class="symbol">⚡</div><h3>PUTERE</h3><p>Inspirat de forța și energia lui Zeus.</p></div>
-<div class="card"><div class="symbol">♛</div><h3>DOMINARE</h3><p>Un design regal, creat pentru o experiență memorabilă.</p></div>
-<div class="card"><div class="symbol">✨</div><h3>ELEGANȚĂ</h3><p>Negru profund și accente aurii.</p></div>
-</div>
+<p>Intră în lumea zeilor.</p>
+<p>Joacă gratuit și distrează-te în universul nostru demo.</p>
+<div class="balance">💰 Credite virtuale: <span id="balance">1000</span></div>
 </section>
 
-<section id="despre">
-<h2>DESPRE ZEU CASINO</h2>
-<p class="description">ZEU CASINO este un concept de brand și o demonstrație de design web.</p>
+<main class="games">
+
+<section class="game" id="slot">
+<h2>🎰 SLOTUL ZEILOR</h2>
+<p>Cost: 20 credite virtuale / rotire</p>
+<div class="machine" id="slots">⚡ 👑 ⚡</div>
+<button onclick="spinSlot()">ÎNVÂRTE SLOTUL</button>
+<div class="result" id="slotResult">Mult noroc!</div>
 </section>
+
+<section class="game" id="roata">
+<h2>🎡 ROATA NOROCULUI</h2>
+<p>Cost: 10 credite virtuale / rotire</p>
+<div class="wheel" id="wheel">🎡</div>
+<br>
+<button id="wheelButton" onclick="spinWheel()">ÎNVÂRTE ROATA</button>
+<div class="result" id="wheelResult">Încearcă-ți norocul!</div>
+</section>
+
+<section class="game" id="zaruri">
+<h2>🎲 ZARURILE LUI ZEUS</h2>
+<p>Cost: 10 credite virtuale / aruncare</p>
+<div class="dice" id="dice">🎲 🎲</div>
+<button onclick="rollDice()">ARUNCĂ ZARURILE</button>
+<div class="result" id="diceResult">Poți obține între 2 și 12!</div>
+</section>
+
 </main>
 
-<footer>
-© 2026 ZEU CASINO — Toate drepturile rezervate.<br>
-Proiect demonstrativ. Nu acceptă depuneri, pariuri sau bani reali și nu oferă jocuri de noroc.
+<footer class="note">
+© 2026 ZEU CASINO — Proiect demonstrativ.<br>
+Creditele sunt virtuale și nu au valoare în bani reali.
+Nu se acceptă depuneri și nu se pot face retrageri.
 </footer>
+
+<script>
+let credits = 1000;
+let busy = false;
+
+function updateBalance(){
+ document.getElementById("balance").textContent=credits;
+}
+
+function spend(amount){
+ if(credits<amount){
+  alert("Nu ai suficiente credite virtuale!");
+  return false;
+ }
+ credits-=amount;
+ updateBalance();
+ return true;
+}
+
+function reward(amount){
+ credits+=amount;
+ updateBalance();
+}
+
+function spinSlot(){
+ if(busy || !spend(20))return;
+ busy=true;
+ const symbols=["⚡","👑","💎","🔱","🍀","⭐"];
+ const result=document.getElementById("slots");
+ const output=document.getElementById("slotResult");
+ output.textContent="Se învârt rolele...";
+ let count=0;
+ const timer=setInterval(()=>{
+  result.textContent=Array.from({length:3},()=>symbols[Math.floor(Math.random()*symbols.length)]).join(" ");
+  count++;
+  if(count>=12){
+   clearInterval(timer);
+   const a=symbols[Math.floor(Math.random()*symbols.length)];
+   const b=symbols[Math.floor(Math.random()*symbols.length)];
+   const c=symbols[Math.floor(Math.random()*symbols.length)];
+   result.textContent=a+" "+b+" "+c;
+   if(a===b && b===c){
+    reward(200);
+    output.textContent="JACKPOT! Ai primit 200 de credite virtuale!";
+   }else if(a===b || b===c || a===c){
+    reward(40);
+    output.textContent="Bravo! Ai primit 40 de credite virtuale!";
+   }else{
+    output.textContent="Nu ai câștigat de data aceasta. Mai încearcă!";
+   }
+   busy=false;
+  }
+ },120);
+}
+
+function spinWheel(){
+ if(busy || !spend(10))return;
+ busy=true;
+ const wheel=document.getElementById("wheel");
+ const button=document.getElementById("wheelButton");
+ const output=document.getElementById("wheelResult");
+ button.disabled=true;
+ output.textContent="Roata se învârte...";
+ wheel.style.transform="rotate("+(1440+Math.floor(Math.random()*720))+"deg)";
+ setTimeout(()=>{
+  const prizes=[0,10,20,30,50,100];
+  const prize=prizes[Math.floor(Math.random()*prizes.length)];
+  reward(prize);
+  output.textContent=prize===0?"De data aceasta nu ai primit credite.":"Ai primit "+prize+" credite virtuale!";
+  wheel.style.transform="rotate(0deg)";
+  button.disabled=false;
+  busy=false;
+ },3200);
+}
+
+function rollDice(){
+ if(busy || !spend(10))return;
+ busy=true;
+ const dice=document.getElementById("dice");
+ const output=document.getElementById("diceResult");
+ const faces=["⚀","⚁","⚂","⚃","⚄","⚅"];
+ output.textContent="Zarurile se rostogolesc...";
+ let count=0;
+ const timer=setInterval(()=>{
+  dice.textContent=faces[Math.floor(Math.random()*6)]+" "+faces[Math.floor(Math.random()*6)];
+  count++;
+  if(count>=10){
+   clearInterval(timer);
+   const a=Math.floor(Math.random()*6)+1;
+   const b=Math.floor(Math.random()*6)+1;
+   dice.textContent=faces[a-1]+" "+faces[b-1];
+   const total=a+b;
+   if(total===12){
+    reward(100);
+    output.textContent="DOUĂ ZARURI DE ȘASE! Ai primit 100 de credite!";
+   }else if(total>=8){
+    reward(30);
+    output.textContent="Ai obținut "+total+"! Ai primit 30 de credite!";
+   }else{
+    output.textContent="Ai obținut "+total+". Mai încearcă!";
+   }
+   busy=false;
+  }
+ },100);
+}
+</script>
 </body>
 </html>
